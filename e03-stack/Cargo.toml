@@ -1,0 +1,11 @@
+[package]
+name = "e03-stack"
+version = "0.1.0"
+authors = ["Mate Kovacs <mkovaxx@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+
+[dev-dependencies]
+quickcheck = "0.8"
+quickcheck_macros = "0.8"
