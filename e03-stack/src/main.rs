@@ -1,10 +1,19 @@
 use std::env;
 
 mod interface;
-use interface::StackInterface;
+//use interface;
+use crate::interface::StackInterface;
 
 struct Stack {
     // TODO: Add field to hold stack elements.
+}
+
+impl Stack {
+    fn new() -> impl StackInterface {
+        Stack {
+            // TODO: Initialize fields.
+        }
+    }
 }
 
 impl StackInterface for Stack {
@@ -13,14 +22,15 @@ impl StackInterface for Stack {
 
 fn main() {
     if env::args().len() > 1 {
-        let mut stack = Stack::new();
+        //let mut stack_impl = ;
+        let stack = &mut Stack::new();
         for token in env::args().skip(1) {
             let result = match token.as_ref() {
-                "+" => eval_operator(&mut stack, &|op0, op1| op0 + op1)
+                "+" => eval_operator(stack, &|op0, op1| op0 + op1)
                     .expect("Not enough operands on stack for operator '+'"),
-                "-" => eval_operator(&mut stack, &|op0, op1| op0 - op1)
+                "-" => eval_operator(stack, &|op0, op1| op0 - op1)
                     .expect("Not enough operands on stack for operator '-'"),
-                "x" => eval_operator(&mut stack, &|op0, op1| op0 * op1)
+                "x" => eval_operator(stack, &|op0, op1| op0 * op1)
                     .expect("Not enough operands on stack for operator 'x'"),
                 other => other
                     .parse::<i32>()
@@ -36,7 +46,7 @@ fn main() {
 
 type BinaryOperator = Fn(i32, i32) -> i32;
 
-fn eval_operator(stack: &mut Stack, operator: &BinaryOperator) -> Option<i32> {
+fn eval_operator(stack: &mut StackInterface, operator: &BinaryOperator) -> Option<i32> {
     stack
         .pop()
         .and_then(|op1| stack.pop().map(|op0| operator(op0, op1)))
