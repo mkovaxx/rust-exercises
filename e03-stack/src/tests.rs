@@ -1,5 +1,4 @@
 use super::*;
-use quickcheck::TestResult;
 
 #[test]
 fn test_new_stack_is_empty() {

@@ -7,28 +7,20 @@ struct Stack {
     // TODO: Add field to hold stack elements.
 }
 
-impl Stack {
-    fn new() -> impl StackInterface {
-        Stack {
-            // TODO: Initialize fields.
-        }
-    }
-}
-
 impl StackInterface for Stack {
     // TODO: Implement methods defined by StackInterface.
 }
 
 fn main() {
     if env::args().len() > 1 {
-        let stack = &mut Stack::new();
+        let mut stack = Stack::new();
         for token in env::args().skip(1) {
             let result = match token.as_ref() {
-                "+" => eval_operator(stack, &|op0, op1| op0 + op1)
+                "+" => eval_operator(&mut stack, &|op0, op1| op0 + op1)
                     .expect("Not enough operands on stack for operator '+'"),
-                "-" => eval_operator(stack, &|op0, op1| op0 - op1)
+                "-" => eval_operator(&mut stack, &|op0, op1| op0 - op1)
                     .expect("Not enough operands on stack for operator '-'"),
-                "x" => eval_operator(stack, &|op0, op1| op0 * op1)
+                "x" => eval_operator(&mut stack, &|op0, op1| op0 * op1)
                     .expect("Not enough operands on stack for operator 'x'"),
                 other => other
                     .parse::<i32>()
