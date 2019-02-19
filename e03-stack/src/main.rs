@@ -1,7 +1,6 @@
 use std::env;
 
 mod interface;
-//use interface;
 use crate::interface::StackInterface;
 
 struct Stack {
@@ -22,7 +21,6 @@ impl StackInterface for Stack {
 
 fn main() {
     if env::args().len() > 1 {
-        //let mut stack_impl = ;
         let stack = &mut Stack::new();
         for token in env::args().skip(1) {
             let result = match token.as_ref() {
