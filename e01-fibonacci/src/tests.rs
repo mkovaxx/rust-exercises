@@ -1,5 +1,6 @@
 use super::*;
 use quickcheck::TestResult;
+use quickcheck_macros::quickcheck;
 
 #[test]
 fn test_base_cases() {
