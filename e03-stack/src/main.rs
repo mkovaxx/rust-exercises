@@ -1,6 +1,6 @@
-use std::env;
-
 mod interface;
+
+use std::env;
 use crate::interface::StackInterface;
 
 struct Stack {
@@ -41,12 +41,6 @@ fn eval_operator(stack: &mut StackInterface, operator: &BinaryOperator) -> Optio
         .pop()
         .and_then(|op1| stack.pop().map(|op0| operator(op0, op1)))
 }
-
-#[cfg(test)]
-extern crate quickcheck;
-#[cfg(test)]
-#[macro_use(quickcheck)]
-extern crate quickcheck_macros;
 
 #[cfg(test)]
 mod tests;

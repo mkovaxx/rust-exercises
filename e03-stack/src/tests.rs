@@ -1,4 +1,5 @@
 use super::*;
+use quickcheck_macros::quickcheck;
 
 #[test]
 fn test_new_stack_is_empty() {
@@ -19,6 +20,6 @@ fn test_reverses_elements(ns: Vec<i32>) -> bool {
     for n in &ns {
         stack.push(n.clone());
     }
-    let ps: Vec<i32> = (0..ns.len()).map(|_| stack.pop().unwrap()).collect();
-    stack.pop() == None && ns == ps.iter().rev().map(|e| e.clone()).collect::<Vec<i32>>()
+    let ps: Vec<_> = (0..ns.len()).map(|_| stack.pop()).collect();
+    stack.pop() == None && ps == ns.iter().rev().map(|e| Some(e.clone())).collect::<Vec<_>>()
 }
