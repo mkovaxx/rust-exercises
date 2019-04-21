@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-cargo test
+cargo -q test

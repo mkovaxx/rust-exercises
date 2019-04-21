@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-OUTPUT=$(cargo run)
+OUTPUT=$(cargo -q run)
 SOURCE=$(cat src/main.rs)
 
 if [ "$OUTPUT" = "$SOURCE" ]; then
