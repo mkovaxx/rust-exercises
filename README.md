@@ -11,7 +11,7 @@ be useless.
 The goal of these exercises is to teach you how to express your ideas in Rust. As such, they don't intend to do the
 following two things.
 
-First, these exercises don't intend to train to form ideas in the first place. In other words, they aren't meant to give
+First, these exercises don't intend to train forming ideas in the first place. In other words, they aren't meant to give
 you a basic understanding of computer science and software engineering. If you don't yet have programming experience,
 these exercises aren't the right place to start learning.
 
