@@ -3,20 +3,20 @@
 problem: check the correctness of a complex function
 
 extreme solutions:
-    - "classical" testing: hand-picked input/output pairs
-        - labor-intensive
-        - incomplete
-        - not fun
-    - formal methods:
-        - steep learning curve (proofs, abstract math)
-        - lack of support & simple tools
-        - did I mention proofs & math?
+- "classical" testing: hand-picked input/output pairs
+    - labor-intensive
+    - incomplete
+    - not fun
+- formal methods:
+    - steep learning curve (proofs, abstract math)
+    - lack of support & simple tools
+    - did I mention proofs & math?
 
 middle ground: property-based randomized testing
-    - requires some math and creativity
-    - is a probabilistic method
-    - has good support, automation
-    - scales well
+- requires some math and creativity
+- is a probabilistic method
+- has good support, automation
+- scales well
 
 details:
 - property: a true statement about an input-output pair
